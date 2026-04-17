@@ -1,0 +1,84 @@
+body {
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+}
+
+#character-table {
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+#character-table th, 
+#character-table td {
+    padding: 25px 40px;
+    text-align: center;
+}
+
+#character-table th {
+    background-color: #202329;
+    color: white;
+}
+
+#character-table img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+#character-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* ----------------------------------------------------- */
+
+.details-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.details-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.details-content img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.info h1 {
+    color: #202329;
+}
+
+.info p {
+    color: #444;
+}
+
+.back-btn {
+    background-color: #55cc44;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background-color: #44aa33;
+}
