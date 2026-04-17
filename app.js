@@ -1,9 +1,12 @@
 const app = document.getElementById('app');
+let currentPage = 1;
 
-async function homePage(){
-    const response = await fetch('https://rickandmortyapi.com/api/character');
+async function homePage(page = 1){
+    currentPage = page;
+    const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
     const data = await response.json()
     const characters = data.results;
+    const totalPages = data.info.pages;
 
     let html = `
 
@@ -35,6 +38,11 @@ async function homePage(){
     html += `
             </tbody>
         </table>
+        <div class="pagination-container">
+            <button onclick="homePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} class="page-btn">Previous</button>
+            <span class="page-info">Page ${currentPage} / ${totalPages}</span>
+            <button onclick="homePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} class="page-btn">Next</button>
+        </div>
     `;
 
     app.innerHTML = html;
@@ -46,7 +54,7 @@ async function profilePage(id){
     const createdDate = new Date(character.created).toLocaleDateString('en-EN');
     app.innerHTML = `
         <div class="details-card">
-            <button onclick="homePage()" class="back-btn">Back</button>
+            <button onclick="homePage(currentPage)" class="back-btn">Back</button>
             
             <div class="details-content">
                 <img src="${character.image}" alt="${character.name}">
@@ -66,4 +74,4 @@ async function profilePage(id){
     `;
 }
 
-window.onload = homePage;
+window.onload = () => homePage(1);

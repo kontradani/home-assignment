@@ -10,6 +10,8 @@ body {
     max-width: 1000px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #character-table {
@@ -81,4 +83,11 @@ body {
 
 .back-btn:hover {
     background-color: #44aa33;
+}
+
+.pagination-container {
+    margin: 60px 0;
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
